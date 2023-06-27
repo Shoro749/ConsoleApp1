@@ -11,32 +11,27 @@ namespace ConsoleApp1
                 Console.InputEncoding = Encoding.Unicode;
                 Console.OutputEncoding = Encoding.Unicode;
 
-                Console.Write("Введіть число: ");
-                int num = Convert.ToInt32(Console.ReadLine());
+                const int size = 5;
+                int[] numbers = new int[size];
+                int max = int.MinValue, min = int.MaxValue, sum = 0, d = 1;
 
-                if (num > 0 && num < 100)
+                for (int i = 0; i < size; i++)
                 {
-                    if (num % 3 == 0)
+                    Console.Write($"{i+1}) Введіть число: ");
+                    numbers[i] = Convert.ToInt32(Console.ReadLine());
+                    if (max < numbers[i])
                     {
-                        Console.WriteLine("Fizz");
+                        max = numbers[i];
                     }
-                    else
+                    if (min > numbers[i])
                     {
-                        if (num % 5 == 0)
-                        {
-                            Console.WriteLine("Buzz");
-                        }
-                        else
-                        {
-                            Console.WriteLine(num);
-                        }
+                        min = numbers[i];
                     }
+                    sum += numbers[i];
+                    d *= numbers[i];
                 }
-                else
-                {
-                    throw new Exception("Число не в діапазоні від 1 до 100!");
-                }
-                
+
+                Console.WriteLine($"Сума: {sum};\nДобуток: {d};\nМінімальне: {min};\nМаксимальне: {max};");
             }
             catch (Exception ex)
             {
