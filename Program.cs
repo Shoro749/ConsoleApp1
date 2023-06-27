@@ -11,32 +11,9 @@ namespace ConsoleApp1
                 Console.InputEncoding = Encoding.Unicode;
                 Console.OutputEncoding = Encoding.Unicode;
 
-                Console.Write("Введіть число: ");
-                int num = Convert.ToInt32(Console.ReadLine());
-
-                if (num > 0 && num < 100)
-                {
-                    if (num % 3 == 0)
-                    {
-                        Console.WriteLine("Fizz");
-                    }
-                    else
-                    {
-                        if (num % 5 == 0)
-                        {
-                            Console.WriteLine("Buzz");
-                        }
-                        else
-                        {
-                            Console.WriteLine(num);
-                        }
-                    }
-                }
-                else
-                {
-                    throw new Exception("Число не в діапазоні від 1 до 100!");
-                }
-                
+                Console.WriteLine("It's easy to win forgiveness for being wrong;" +
+                    "\r\nbeing right is what gets you into real trouble." +
+                    "\r\nBjarne Stroustrup ");
             }
             catch (Exception ex)
             {
