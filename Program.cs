@@ -11,32 +11,24 @@ namespace ConsoleApp1
                 Console.InputEncoding = Encoding.Unicode;
                 Console.OutputEncoding = Encoding.Unicode;
 
-                Console.Write("Введіть число: ");
-                int num = Convert.ToInt32(Console.ReadLine());
-
-                if (num > 0 && num < 100)
+                Console.Write("Введіть температуру: ");
+                int degrees = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("1) Фаренгейт 2) Цельсій ");
+                Console.Write("В яку температуру перевести(1, 2): ");
+                int select = Convert.ToInt32(Console.ReadLine());
+                
+                if (select == 1)
                 {
-                    if (num % 3 == 0)
-                    {
-                        Console.WriteLine("Fizz");
-                    }
-                    else
-                    {
-                        if (num % 5 == 0)
-                        {
-                            Console.WriteLine("Buzz");
-                        }
-                        else
-                        {
-                            Console.WriteLine(num);
-                        }
-                    }
+                    Console.WriteLine($"{degrees * 1.8 + 32} фаренгейт!");
+                } 
+                else if (select == 2)
+                {
+                    Console.WriteLine($"{(degrees - 32) / 1.8} цельсій!");
                 }
                 else
                 {
-                    throw new Exception("Число не в діапазоні від 1 до 100!");
+                    throw new Exception("Невірний вибір!");
                 }
-                
             }
             catch (Exception ex)
             {
