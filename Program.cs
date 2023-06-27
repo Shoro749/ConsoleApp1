@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 
 namespace ConsoleApp1
 {
@@ -11,32 +12,31 @@ namespace ConsoleApp1
                 Console.InputEncoding = Encoding.Unicode;
                 Console.OutputEncoding = Encoding.Unicode;
 
-                Console.Write("Введіть число: ");
-                int num = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Введіть перше число: ");
+                int num1 = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Введіть друге число: ");
+                int num2 = Convert.ToInt32(Console.ReadLine());
 
-                if (num > 0 && num < 100)
+                if (num1 <= 0 || num2 <= 0)
                 {
-                    if (num % 3 == 0)
-                    {
-                        Console.WriteLine("Fizz");
-                    }
-                    else
-                    {
-                        if (num % 5 == 0)
-                        {
-                            Console.WriteLine("Buzz");
-                        }
-                        else
-                        {
-                            Console.WriteLine(num);
-                        }
-                    }
+                    throw new Exception("Число від'ємне!");
                 }
-                else
+
+                if (num1 > num2)
                 {
-                    throw new Exception("Число не в діапазоні від 1 до 100!");
+                    int temp = num1;
+                    num1 = num2;
+                    num2 = temp;
                 }
                 
+                for (int i = num1; i <= num2; i++)
+                {
+                    for (int j = 0; j < i; j++)
+                    {
+                        Console.Write($"{i} ");
+                    }
+                    Console.Write("\n");
+                }
             }
             catch (Exception ex)
             {
