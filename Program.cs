@@ -8,35 +8,46 @@ namespace ConsoleApp1
         {
             try
             {
-                Console.InputEncoding = Encoding.Unicode;
-                Console.OutputEncoding = Encoding.Unicode;
+                /*Користувач з клавіатури вводить довжину лінії, символ
+                заповнювач, напрямок лінії (горизонтальна, вертикальна).
+                Програма відображає лінію по заданих параметрах.
+                Наприклад: +++++.
+                Параметри лінії: горизонтальна лінія, довжина дорівнює п'яти, символ заповнювач +.*/
 
-                Console.Write("Введіть число: ");
-                int num = Convert.ToInt32(Console.ReadLine());
-
-                if (num > 0 && num < 100)
+                static void getLine(int lenght, string symvol, int napryamok)
                 {
-                    if (num % 3 == 0)
+                    if (napryamok == 1)
                     {
-                        Console.WriteLine("Fizz");
+                        for (int i = 0; i < lenght; i++)
+                        {
+                            Console.Write(symvol);
+                        }
                     }
                     else
                     {
-                        if (num % 5 == 0)
+                        for (int i = 0; i < lenght; i++)
                         {
-                            Console.WriteLine("Buzz");
-                        }
-                        else
-                        {
-                            Console.WriteLine(num);
+                            Console.WriteLine(symvol);
                         }
                     }
                 }
-                else
+
+                Console.InputEncoding = Encoding.Unicode;
+                Console.OutputEncoding = Encoding.Unicode;
+
+                Console.Write("Введіть довжину лінії: ");
+                int lenght = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Введіть символ заповнювач: ");
+                string ?symvol = Convert.ToString(Console.ReadLine());
+                Console.Write("Введіть напрямок лінії(1) -, 2) | ): ");
+                int napryamok = Convert.ToInt32(Console.ReadLine());
+
+                if (napryamok > 2 || napryamok < 1)
                 {
-                    throw new Exception("Число не в діапазоні від 1 до 100!");
+                    throw new Exception("Такого напрямку не існує!");
                 }
-                
+
+                getLine(lenght, symvol, napryamok);
             }
             catch (Exception ex)
             {
