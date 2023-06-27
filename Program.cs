@@ -8,35 +8,40 @@ namespace ConsoleApp1
         {
             try
             {
+                /*Користувач вводить з клавіатури межі числового діапазону. Потрібно показати усі числа Фібоначчі з цього
+                діапазону. Числа Фібоначчі — елементи числової послідовності, у якій перші два числа дорівнюють 0 і 1, а кожне
+                наступне число дорівнює сумі двох попередніх чисел.
+                Наприклад, якщо вказано діапазон 0–20, результат буде:
+                0, 1, 1, 2, 3, 5, 8, 13.*/
+
                 Console.InputEncoding = Encoding.Unicode;
                 Console.OutputEncoding = Encoding.Unicode;
 
-                Console.Write("Введіть число: ");
+                int num1 = 0, num2 = 1;
+
+                Console.Write("Введіть діапазон: ");
                 int num = Convert.ToInt32(Console.ReadLine());
 
-                if (num > 0 && num < 100)
+                if (num < 1)
                 {
-                    if (num % 3 == 0)
-                    {
-                        Console.WriteLine("Fizz");
-                    }
-                    else
-                    {
-                        if (num % 5 == 0)
-                        {
-                            Console.WriteLine("Buzz");
-                        }
-                        else
-                        {
-                            Console.WriteLine(num);
-                        }
-                    }
+                    throw new Exception("Діапазон мяє бути хоча б 2!");
                 }
-                else
+
+                Console.Write($"{num1} {num2}");
+
+                while (true)
                 {
-                    throw new Exception("Число не в діапазоні від 1 до 100!");
+                    num1 = num1 + num2;
+                    num2 = num1 + num2;
+
+                    if (num1 > num || num2 > num)
+                    {
+                        break;
+                    }
+
+                    Console.Write($" {num1}");
+                    Console.Write($" {num2}");
                 }
-                
             }
             catch (Exception ex)
             {
