@@ -11,32 +11,25 @@ namespace ConsoleApp1
                 Console.InputEncoding = Encoding.Unicode;
                 Console.OutputEncoding = Encoding.Unicode;
 
-                Console.Write("Введіть число: ");
-                int num = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Введіть перше число: ");
+                int num1 = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Введіть друге число: ");
+                int num2 = Convert.ToInt32(Console.ReadLine());
 
-                if (num > 0 && num < 100)
+                if (num1 > num2)
                 {
-                    if (num % 3 == 0)
+                    int temp = num1;
+                    num1 = num2;
+                    num2 = temp;
+                }
+
+                for (int i = num1; i < num2; i++)
+                {
+                    if (i % 2 == 0)
                     {
-                        Console.WriteLine("Fizz");
-                    }
-                    else
-                    {
-                        if (num % 5 == 0)
-                        {
-                            Console.WriteLine("Buzz");
-                        }
-                        else
-                        {
-                            Console.WriteLine(num);
-                        }
+                        Console.Write($"{i} ");
                     }
                 }
-                else
-                {
-                    throw new Exception("Число не в діапазоні від 1 до 100!");
-                }
-                
             }
             catch (Exception ex)
             {
