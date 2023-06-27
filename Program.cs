@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ConsoleApp1
 {
@@ -6,37 +7,39 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            /*Користувач вводить з клавіатури дату. Додаток має
+            відобразити назву пори року і дня тижня. Наприклад,
+            якщо введено 22.12.2021, додаток має відобразити Winter
+            Wednesday*/
             try
             {
                 Console.InputEncoding = Encoding.Unicode;
                 Console.OutputEncoding = Encoding.Unicode;
 
-                Console.Write("Введіть число: ");
-                int num = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Введіть день: ");
+                int day = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Введіть місяць: ");
+                int month = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Введіть рік: ");
+                int year = Convert.ToInt32(Console.ReadLine());
+                string ?nMonth;
+                if (month >=3 && month <= 5)
+                {
+                    nMonth = "Весна";
+                }
+                else if (month >=6 && month <= 8)
+                {
+                    nMonth = "Літо";
+                }
+                else if (month >= 9 && month <= 11)
+                {
+                    nMonth = "Осінь";
+                }
+                else { nMonth = "Зима"; }
 
-                if (num > 0 && num < 100)
-                {
-                    if (num % 3 == 0)
-                    {
-                        Console.WriteLine("Fizz");
-                    }
-                    else
-                    {
-                        if (num % 5 == 0)
-                        {
-                            Console.WriteLine("Buzz");
-                        }
-                        else
-                        {
-                            Console.WriteLine(num);
-                        }
-                    }
-                }
-                else
-                {
-                    throw new Exception("Число не в діапазоні від 1 до 100!");
-                }
-                
+                DateTime date = new DateTime(year, month, day);
+                string dayOfWeek = date.ToString("dddd");
+                Console.WriteLine($"{nMonth} {dayOfWeek}");
             }
             catch (Exception ex)
             {
