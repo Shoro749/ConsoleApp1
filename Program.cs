@@ -8,35 +8,36 @@ namespace ConsoleApp1
         {
             try
             {
+                /*Розробіть додаток, який знаходитиме мінімальне і
+                максимальне значення у двовимірному масиві.*/
+
                 Console.InputEncoding = Encoding.Unicode;
                 Console.OutputEncoding = Encoding.Unicode;
+                Random rnd = new Random();
 
-                Console.Write("Введіть число: ");
-                int num = Convert.ToInt32(Console.ReadLine());
+                int[,] arr = new int[3, 3];
+                int max = int.MinValue, min = int.MaxValue;
 
-                if (num > 0 && num < 100)
+                Console.Write("Array:\n");
+                for (int i = 0; i < 3; i++)
                 {
-                    if (num % 3 == 0)
+                    for (int j = 0; j < 3; j++)
                     {
-                        Console.WriteLine("Fizz");
-                    }
-                    else
-                    {
-                        if (num % 5 == 0)
+                        arr[i, j] = rnd.Next() % 100;
+                        Console.Write($"{arr[i, j]} ");
+                        if (max < arr[i, j])
                         {
-                            Console.WriteLine("Buzz");
+                            max = arr[i, j];
                         }
-                        else
+                        if (min > arr[i, j])
                         {
-                            Console.WriteLine(num);
+                            min = arr[i, j];
                         }
                     }
+                    Console.Write("\n");
                 }
-                else
-                {
-                    throw new Exception("Число не в діапазоні від 1 до 100!");
-                }
-                
+
+                Console.WriteLine($"\nMax value: {max}\nMin value: {min}");
             }
             catch (Exception ex)
             {
