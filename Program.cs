@@ -16,7 +16,9 @@ namespace ConsoleApp1
                 Console.Write("Введіть речення: ");
                 string? str = Convert.ToString(Console.ReadLine());
 
-
+                str = str.Trim();
+                string[] words = str.Split(' ');
+                Console.WriteLine("Кількість слів: " +  words.Length);
             }
             catch (Exception ex)
             {
