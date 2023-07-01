@@ -8,35 +8,28 @@ namespace ConsoleApp1
         {
             try
             {
+                /*Створіть додаток, який відображає кількість парних,
+                непарних, унікальних елементів масиву.*/
+
                 Console.InputEncoding = Encoding.Unicode;
                 Console.OutputEncoding = Encoding.Unicode;
 
-                Console.Write("Введіть число: ");
-                int num = Convert.ToInt32(Console.ReadLine());
+                int[] arr = new int[10] { 1, 2, 2, 5, 6, 10, 7, 8, 9, 1 };
+                int p = 0, n = 0, u = 0;
 
-                if (num > 0 && num < 100)
+                for (int i = 0; i < 10; i++)
                 {
-                    if (num % 3 == 0)
+                    if (arr[i] % 2 == 0)
                     {
-                        Console.WriteLine("Fizz");
+                        p++;
                     }
-                    else
+                    if (arr[i] % 2 != 0)
                     {
-                        if (num % 5 == 0)
-                        {
-                            Console.WriteLine("Buzz");
-                        }
-                        else
-                        {
-                            Console.WriteLine(num);
-                        }
+                        n++;
                     }
                 }
-                else
-                {
-                    throw new Exception("Число не в діапазоні від 1 до 100!");
-                }
-                
+                u = arr.Distinct().Count();
+                Console.WriteLine($"Парні: {p}\nНепарні: {n}\nУнікальні: {u}");
             }
             catch (Exception ex)
             {
