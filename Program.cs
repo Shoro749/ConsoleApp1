@@ -14,13 +14,9 @@ namespace ConsoleApp1
                 Console.OutputEncoding = Encoding.Unicode;
 
                 Console.Write("Введіть речення: ");
-                string ?str = Convert.ToString(Console.ReadLine());
-                var words = str.Split(' ', ',', '.');
-                foreach(var word in words)
-                {
-                    Console.Write(word);
-                }
-                Console.WriteLine(str.Split(' ', ',', '.'));
+                string? str = Convert.ToString(Console.ReadLine());
+
+
             }
             catch (Exception ex)
             {
