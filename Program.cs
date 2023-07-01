@@ -18,7 +18,7 @@ namespace ConsoleApp1
                 int temp = 0;
                 int[] arr = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
                 int[] arr2 = new int[7] { 1, 12, 3, 14, 5, 16, 7 };
-                int[] arr3 = new int[7];
+                int[] arr3 = new int[10];
 
                 Console.WriteLine("Масив 1");
                 for (int i = 0; i < arr.Length; i++)
@@ -29,21 +29,43 @@ namespace ConsoleApp1
                 Console.WriteLine("\nМасив 2");
                 for (int i = 0; i < arr2.Length; i++)
                 {
-                    Console.Write($"{arr[i]} ");
+                    Console.Write($"{arr2[i]} ");
                 }
 
-                for (int i = 0; i < arr3.Length ; i++)
+                bool s = true;
+                bool b = true;
+                for (int i = 0; i < arr2.Length ; i++)
                 {
-                    for (int j = 0; j < arr3.Length; j++)
+                    s = true;
+                    b = true;
+                    for (int j = 0; j < arr2.Length ; j++)
                     {
                         if (arr[i] == arr2[j])
                         {
-                            arr3[temp] = arr[i];
-                            temp++;
+                            b = false;
+                        }
+                        if (arr[j] == arr2[i])
+                        {
+                            s = false;
                         }
                     }
+                    if (b == true)
+                    {
+                        arr3[temp] = arr[i];
+                        temp++;
+                    }
+                    if (s == true)
+                    {
+                        arr3[temp] = arr2[i];
+                        temp++;
+                    }
                 }
-                int[] arr4 = arr3.Distinct().ToArray();
+
+                for (int i = 7; i < 10; i++)
+                {
+                    arr3[temp] = arr[i];
+                    temp++;
+                }
 
                 Console.Write("\n\nРезультат: ");
                 foreach (var item in arr3)
@@ -58,7 +80,7 @@ namespace ConsoleApp1
             catch (Exception ex)
             {
                 Console.ForegroundColor = ConsoleColor.Red; 
-                Console.WriteLine($"Помилка! {ex.Message}");
+                Console.WriteLine($"\nПомилка! {ex.Message}");
             }
             Console.ReadKey();
             Console.ResetColor();
