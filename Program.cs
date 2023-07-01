@@ -8,35 +8,58 @@ namespace ConsoleApp1
         {
             try
             {
+                /*Користувач вводить з клавіатури три числа. Необхідно
+                підрахувати кількість разів послідовності цих трьох чисел
+                в масиві.
+                Наприклад:
+                користувач ввів: 7 6 5;
+                масив: 7 6 5 3 4 7 6 5 8 7 6 5;
+                кількість повторень послідовності: 3.*/
+
                 Console.InputEncoding = Encoding.Unicode;
                 Console.OutputEncoding = Encoding.Unicode;
 
-                Console.Write("Введіть число: ");
-                int num = Convert.ToInt32(Console.ReadLine());
+                int[] arr = new int[10] { 7, 6, 5, 3 ,4, 7, 6, 5, 3, 4};
+                int b = 0, s = 0;
 
-                if (num > 0 && num < 100)
+                Console.Write("Введіть перше число: ");
+                int num = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Введіть другу число: ");
+                int num2 = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Введіть третє число: ");
+                int num3 = Convert.ToInt32(Console.ReadLine());
+
+                foreach(var item in arr)
                 {
-                    if (num % 3 == 0)
+                    if (item == num)
                     {
-                        Console.WriteLine("Fizz");
+                        b = 1;
                     }
-                    else
+                    if (item == num2)
                     {
-                        if (num % 5 == 0)
+                        if (b == 1)
                         {
-                            Console.WriteLine("Buzz");
+                            b = 2;
                         }
                         else
                         {
-                            Console.WriteLine(num);
+                            b = 0;
+                        }
+                    }
+                    if (item == num3)
+                    {
+                        if (b == 2)
+                        {
+                            s++;
+                        }
+                        else
+                        {
+                            b = 0;
                         }
                     }
                 }
-                else
-                {
-                    throw new Exception("Число не в діапазоні від 1 до 100!");
-                }
-                
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"Кількість повторень: {s}");
             }
             catch (Exception ex)
             {
