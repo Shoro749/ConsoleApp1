@@ -8,35 +8,33 @@ namespace ConsoleApp1
         {
             try
             {
+                /*Створіть додаток, який відображає кількість значень у
+                масиві менше заданого параметра користувачем. Наприклад,
+                кількість значень менших, ніж 7 (7 введено користувачем
+                з клавіатури).*/
+
                 Console.InputEncoding = Encoding.Unicode;
                 Console.OutputEncoding = Encoding.Unicode;
+                Random rnd = new Random();
+
+                int[] arr = new int[10];
+                int n = 0;
 
                 Console.Write("Введіть число: ");
                 int num = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Масив: ");
 
-                if (num > 0 && num < 100)
+                for (int i = 0; i < 10; i++)
                 {
-                    if (num % 3 == 0)
+                    arr[i] = rnd.Next() % 100;
+                    Console.Write($"{arr[i]} ");
+                    if (arr[i] < num)
                     {
-                        Console.WriteLine("Fizz");
-                    }
-                    else
-                    {
-                        if (num % 5 == 0)
-                        {
-                            Console.WriteLine("Buzz");
-                        }
-                        else
-                        {
-                            Console.WriteLine(num);
-                        }
+                        n++;
                     }
                 }
-                else
-                {
-                    throw new Exception("Число не в діапазоні від 1 до 100!");
-                }
-                
+
+                Console.WriteLine($"\n\nКількість чисел менше {num}: {n}!");
             }
             catch (Exception ex)
             {
