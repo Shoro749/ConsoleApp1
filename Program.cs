@@ -8,35 +8,34 @@ namespace ConsoleApp1
         {
             try
             {
+                /*Дано двовимірний масив розміром 5×5, заповнений випадковими числами з діапазону від –100 до 100.
+                Визначити суму елементів масиву, розташованих між
+                мінімальним і максимальним елементами.*/
+
                 Console.InputEncoding = Encoding.Unicode;
                 Console.OutputEncoding = Encoding.Unicode;
+                Random rnd = new Random();
 
-                Console.Write("Введіть число: ");
-                int num = Convert.ToInt32(Console.ReadLine());
+                int[,] arr = new int[5, 5];
+                int sum = 0, min = int.MaxValue, max = int.MinValue;
 
-                if (num > 0 && num < 100)
+                for (int i = 0; i < 5; i++)
                 {
-                    if (num % 3 == 0)
+                    for (int j = 0; j < 5; j++)
                     {
-                        Console.WriteLine("Fizz");
+                        arr[i, j] = rnd.Next(-100, 100);
+                        Console.Write(arr[i, j] + " ");
+                        if (max < arr[i, j]) { max = arr[i, j]; }
+                        if (min > arr[i, j]) { min = arr[i, j]; }
+                        sum += arr[i, j];
                     }
-                    else
-                    {
-                        if (num % 5 == 0)
-                        {
-                            Console.WriteLine("Buzz");
-                        }
-                        else
-                        {
-                            Console.WriteLine(num);
-                        }
-                    }
+                    Console.Write("\n");
                 }
-                else
-                {
-                    throw new Exception("Число не в діапазоні від 1 до 100!");
-                }
-                
+                sum -= max;
+                sum -= min;
+
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write($"\nСума чисел в діапазоні від {min} до {max}: {sum}");
             }
             catch (Exception ex)
             {
