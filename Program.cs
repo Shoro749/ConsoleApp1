@@ -8,35 +8,18 @@ namespace ConsoleApp1
         {
             try
             {
+                /*Користувач вводить з клавіатури речення. Додаток має
+                підрахувати кількість голосних літер у реченні.*/
+
                 Console.InputEncoding = Encoding.Unicode;
                 Console.OutputEncoding = Encoding.Unicode;
 
-                Console.Write("Введіть число: ");
-                int num = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Введіть речення(eng): ");
+                string ?str = Convert.ToString(Console.ReadLine());
+                str = str.Trim();
+                string[] words = str.Split('e', 'a', 'i', 'o', 'u', 'y');
 
-                if (num > 0 && num < 100)
-                {
-                    if (num % 3 == 0)
-                    {
-                        Console.WriteLine("Fizz");
-                    }
-                    else
-                    {
-                        if (num % 5 == 0)
-                        {
-                            Console.WriteLine("Buzz");
-                        }
-                        else
-                        {
-                            Console.WriteLine(num);
-                        }
-                    }
-                }
-                else
-                {
-                    throw new Exception("Число не в діапазоні від 1 до 100!");
-                }
-                
+                Console.Write($"Кількість голосних: {words.Length-1}");
             }
             catch (Exception ex)
             {
