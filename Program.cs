@@ -8,35 +8,32 @@ namespace ConsoleApp1
         {
             try
             {
+                /*Напишіть метод, який сортує масив за зменшенням
+                або зростанням, залежно від вибору користувача.
+                Алгоритм сортування реалізуйте самостійно. Наприклад, може бути реалізоване сортування методом
+                перестановок*/
+
                 Console.InputEncoding = Encoding.Unicode;
                 Console.OutputEncoding = Encoding.Unicode;
+                Random rnd = new Random();
 
-                Console.Write("Введіть число: ");
-                int num = Convert.ToInt32(Console.ReadLine());
+                int[] arr = new int[10];
 
-                if (num > 0 && num < 100)
+                Console.Write("Введіть 1 щоб сортувати за збільшенням, або 2 за зменшенням: ");
+                int select = Convert.ToInt32(Console.ReadLine());
+
+                if (select > 2 && select < 1) { throw new Exception("Неправильний вибір!"); }
+
+                for (int i = 0; i < arr.Length; i++)
                 {
-                    if (num % 3 == 0)
-                    {
-                        Console.WriteLine("Fizz");
-                    }
-                    else
-                    {
-                        if (num % 5 == 0)
-                        {
-                            Console.WriteLine("Buzz");
-                        }
-                        else
-                        {
-                            Console.WriteLine(num);
-                        }
-                    }
+                    arr[i] = rnd.Next(0, 100);
+                    Console.Write(arr[i] + " ");
                 }
-                else
-                {
-                    throw new Exception("Число не в діапазоні від 1 до 100!");
-                }
-                
+
+                Console.WriteLine("\n");
+
+                var v = new SortClass(select);
+                v.Sorting(arr);
             }
             catch (Exception ex)
             {
