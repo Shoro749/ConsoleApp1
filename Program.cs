@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Security.Claims;
+using System.Text;
 
 namespace ConsoleApp1
 {
@@ -8,35 +9,22 @@ namespace ConsoleApp1
         {
             try
             {
+                /* Напишіть метод, який повертає добуток чисел у вказаному діапазоні. 
+                 * Межі діапазону передаються як параметри.*/
+
                 Console.InputEncoding = Encoding.Unicode;
                 Console.OutputEncoding = Encoding.Unicode;
 
-                Console.Write("Введіть число: ");
-                int num = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Введіть перший діапазон: ");
+                int range1 = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Введіть другий діапазон: ");
+                int range2 = Convert.ToInt32(Console.ReadLine());
 
-                if (num > 0 && num < 100)
-                {
-                    if (num % 3 == 0)
-                    {
-                        Console.WriteLine("Fizz");
-                    }
-                    else
-                    {
-                        if (num % 5 == 0)
-                        {
-                            Console.WriteLine("Buzz");
-                        }
-                        else
-                        {
-                            Console.WriteLine(num);
-                        }
-                    }
-                }
-                else
-                {
-                    throw new Exception("Число не в діапазоні від 1 до 100!");
-                }
-                
+                var v = new Class();
+                v.Range1 = range1;
+                v.Range2 = range2;
+
+                Console.Write($"Добуток в діапазоні {range1} до {range2}: {v.Dobutok()}");
             }
             catch (Exception ex)
             {
