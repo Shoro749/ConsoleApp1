@@ -24,6 +24,8 @@ namespace ConsoleApp1
 
                 if (select > 2 && select < 1) { throw new Exception("Неправильний вибір!"); }
 
+                Console.WriteLine("Масив на початку: ");
+
                 for (int i = 0; i < arr.Length; i++)
                 {
                     arr[i] = rnd.Next(0, 100);
