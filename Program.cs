@@ -8,35 +8,18 @@ namespace ConsoleApp1
         {
             try
             {
+                /*Напишіть метод, який перевіряє чи є число числом
+                Фібоначчі. Число передається як параметр. Якщо число
+                просте, потрібно повернути з методу true, інакше — false*/
+
                 Console.InputEncoding = Encoding.Unicode;
                 Console.OutputEncoding = Encoding.Unicode;
 
                 Console.Write("Введіть число: ");
                 int num = Convert.ToInt32(Console.ReadLine());
 
-                if (num > 0 && num < 100)
-                {
-                    if (num % 3 == 0)
-                    {
-                        Console.WriteLine("Fizz");
-                    }
-                    else
-                    {
-                        if (num % 5 == 0)
-                        {
-                            Console.WriteLine("Buzz");
-                        }
-                        else
-                        {
-                            Console.WriteLine(num);
-                        }
-                    }
-                }
-                else
-                {
-                    throw new Exception("Число не в діапазоні від 1 до 100!");
-                }
-                
+                var v = new Class(num);
+                Console.Write(v.Check());
             }
             catch (Exception ex)
             {
