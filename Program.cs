@@ -8,35 +8,17 @@ namespace ConsoleApp1
         {
             try
             {
+                /*Користувач вводить рядок із клавіатури. Необхідно
+                зашифрувати цей рядок, використовуючи шифр Цезаря.*//////////////////////
+
                 Console.InputEncoding = Encoding.Unicode;
                 Console.OutputEncoding = Encoding.Unicode;
 
-                Console.Write("Введіть число: ");
-                int num = Convert.ToInt32(Console.ReadLine());
+                string? ABC = "abcdefghijklmnopqrstuvwxyz";
+                Console.Write("Введіть текст: ");
+                string ?str = Convert.ToString(Console.Read());
 
-                if (num > 0 && num < 100)
-                {
-                    if (num % 3 == 0)
-                    {
-                        Console.WriteLine("Fizz");
-                    }
-                    else
-                    {
-                        if (num % 5 == 0)
-                        {
-                            Console.WriteLine("Buzz");
-                        }
-                        else
-                        {
-                            Console.WriteLine(num);
-                        }
-                    }
-                }
-                else
-                {
-                    throw new Exception("Число не в діапазоні від 1 до 100!");
-                }
-                
+
             }
             catch (Exception ex)
             {
