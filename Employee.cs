@@ -37,7 +37,18 @@ namespace ConsoleApp1
             this.position = position;
             JobDescription = jobDescription;
         }
+        public void getInfo()
+        {
+            Console.WriteLine($"ПІБ: {NSM}\nДата народження: {birthday}\nНомер телефону: {telephone}\n" +
+                $"Емейл: {email}\nПосада: {position}\nОпис службових обов’язків:{JobDescription}\n");
+        }
 
+        public void setNSM(string nSM) { NSM = nSM; }
+        public void setBirthday(string birthday) { this.birthday = birthday; }
+        public void setTel(int tel) { telephone = tel; }
+        public void setEmail(string email) { this.email = email; }
+        public void setPosition(string position) {  this.position = position; }
+        public void setJobDescription(string JobDescription) { this.JobDescription = JobDescription; }
 
     }
 }
