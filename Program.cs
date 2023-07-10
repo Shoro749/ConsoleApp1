@@ -8,35 +8,72 @@ namespace ConsoleApp1
         {
             try
             {
+                /*Користувач з клавіатури вводить до рядка арифметичний вираз. Додаток має підрахувати його результат.
+                Необхідно дотримуватися лише двох операцій: + і –.*/
+
                 Console.InputEncoding = Encoding.Unicode;
                 Console.OutputEncoding = Encoding.Unicode;
 
-                Console.Write("Введіть число: ");
-                int num = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Введіть арифметичний вираз(5+1-3): ");
+                string ?str = Convert.ToString(Console.ReadLine());
+                str = str.Trim();
+                string[] op = new string[2];
+                int temp = 0;
 
-                if (num > 0 && num < 100)
+                for (int i = 0; i < str.Length; i++)
                 {
-                    if (num % 3 == 0)
+                    if (str[i] == '+' || str[i] == '-')
                     {
-                        Console.WriteLine("Fizz");
+                        op[temp] = Convert.ToString(str[i]);
+                        temp++;
                     }
-                    else
-                    {
-                        if (num % 5 == 0)
+                }
+
+                string[] words = str.Split('+', '-');
+                int[] arr = new int[words.Length];
+                for (int i = 0; i < words.Length; i++)
+                {
+                    arr[i] = Convert.ToInt32(words[i]);
+                }
+
+                int answer = 0;
+
+                switch (op[0])
+                {
+                    case "+":
+                        answer = arr[0] + arr[1];
+                        if (op[1] == "-")
                         {
-                            Console.WriteLine("Buzz");
+                            answer = answer - arr[2];
                         }
                         else
                         {
-                            Console.WriteLine(num);
+                            answer = answer + arr[2];
                         }
-                    }
+
+                        break;
+
+                    case "-":
+                        answer = arr[0] - arr[1];
+                        if (op[1] == "-")
+                        {
+                            answer = answer - arr[2];
+                        }
+                        else
+                        {
+                            answer = answer + arr[2];
+                        }
+
+                        break;
                 }
-                else
+
+                Console.Write("\n");
+
+                foreach (var item in str)
                 {
-                    throw new Exception("Число не в діапазоні від 1 до 100!");
+                    Console.Write(item);
                 }
-                
+                Console.WriteLine($"={answer}");
             }
             catch (Exception ex)
             {
