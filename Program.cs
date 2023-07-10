@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Globalization;
+using System.Text;
 
 namespace ConsoleApp1
 {
@@ -8,35 +9,21 @@ namespace ConsoleApp1
         {
             try
             {
+                /*Користувач з клавіатури вводить певний текст. Додаток
+                має змінювати регістр першої літери кожного речення на
+                літеру у верхньому регістрі.
+                Наприклад, якщо користувач ввів: today is a good
+                day for walking. i will try to walk near the sea.
+                Результат роботи додатку: Today is a good day for
+                walking. I will try to walk near the sea.*/
+
                 Console.InputEncoding = Encoding.Unicode;
                 Console.OutputEncoding = Encoding.Unicode;
+                Console.WriteLine("Введіть текст:");
+                string input = Console.ReadLine();
 
-                Console.Write("Введіть число: ");
-                int num = Convert.ToInt32(Console.ReadLine());
-
-                if (num > 0 && num < 100)
-                {
-                    if (num % 3 == 0)
-                    {
-                        Console.WriteLine("Fizz");
-                    }
-                    else
-                    {
-                        if (num % 5 == 0)
-                        {
-                            Console.WriteLine("Buzz");
-                        }
-                        else
-                        {
-                            Console.WriteLine(num);
-                        }
-                    }
-                }
-                else
-                {
-                    throw new Exception("Число не в діапазоні від 1 до 100!");
-                }
-                
+                string capitalized = CapitalizeFirstLetter(input);
+                Console.WriteLine("Результат: " + capitalized);
             }
             catch (Exception ex)
             {
@@ -45,6 +32,26 @@ namespace ConsoleApp1
             }
             Console.ReadKey();
             Console.ResetColor();
+        }
+
+        static string CapitalizeFirstLetter(string input)
+        {
+            string[] sentences = input.Split('.');
+
+            for (int i = 0; i < sentences.Length; i++)
+            {
+                string sentence = sentences[i].Trim();
+
+                if (!string.IsNullOrEmpty(sentence))
+                {
+                    string firstLetter = sentence.Substring(0, 1);
+                    string restOfSentence = sentence.Substring(1);
+
+                    sentences[i] = firstLetter.ToUpper() + restOfSentence;
+                }
+            }
+
+            return string.Join(". ", sentences);
         }
     }
 }
