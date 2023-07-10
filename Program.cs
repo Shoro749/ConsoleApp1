@@ -8,35 +8,37 @@ namespace ConsoleApp1
         {
             try
             {
+                /*Створіть додаток, який перевіряє текст на неприпустимі слова. Якщо неприпустиме слово знайдено, воно
+                має бути замінено набором символів *. За підсумками
+                роботи програми, необхідно показати статистику дій.*/
+
                 Console.InputEncoding = Encoding.Unicode;
                 Console.OutputEncoding = Encoding.Unicode;
 
-                Console.Write("Введіть число: ");
-                int num = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Введіть текст: ");
+                string? str = Convert.ToString(Console.ReadLine());
+                Console.Write("Введіть неприпустиме слово: ");
+                string? notApproved = Convert.ToString(Console.ReadLine());
+                string[] words = str.Split(' ', '.', ',', '?', ':', ';', '-', '!');
 
-                if (num > 0 && num < 100)
+                foreach (var word in words)
                 {
-                    if (num % 3 == 0)
+                    if (word.Length > 0)
                     {
-                        Console.WriteLine("Fizz");
-                    }
-                    else
-                    {
-                        if (num % 5 == 0)
+                        if (word == notApproved)
                         {
-                            Console.WriteLine("Buzz");
+                            for (int i = 0; i < word.Length; i++)
+                            {
+                                Console.Write("*");  
+                            }
+                            Console.Write(" ");
                         }
                         else
                         {
-                            Console.WriteLine(num);
+                            Console.Write(word + " ");
                         }
                     }
                 }
-                else
-                {
-                    throw new Exception("Число не в діапазоні від 1 до 100!");
-                }
-                
             }
             catch (Exception ex)
             {
