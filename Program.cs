@@ -8,35 +8,66 @@ namespace ConsoleApp1
         {
             try
             {
+                /*Реалізуйте клас Матриця». Реалізуйте конструктори і
+                методи класу для введення і виведення даних, підрахунку
+                максимуму і мінімуму. Використовуйте механізм навантаження методів.*//////////////////////////////
+
                 Console.InputEncoding = Encoding.Unicode;
                 Console.OutputEncoding = Encoding.Unicode;
+                Random rnd = new Random();
 
-                Console.Write("Введіть число: ");
-                int num = Convert.ToInt32(Console.ReadLine());
-
-                if (num > 0 && num < 100)
+                int[,] arr = new int[3,3];
+                for (int i = 0; i < 3; i++)
                 {
-                    if (num % 3 == 0)
+                    for (int j = 0; j < 3; j++)
                     {
-                        Console.WriteLine("Fizz");
+                        arr[i,j] = rnd.Next(0, 100);
+                        Console.Write(arr[i,j] + " ");
                     }
-                    else
+                    Console.Write("\n");
+                }
+
+                var v = new Matrix(arr);
+
+                while (true)
+                {
+                    bool Exit = false;
+                    Console.WriteLine("1) Показати матрицю");
+                    Console.WriteLine("2) Переписати матрицю");
+                    Console.WriteLine("3) Найти мінімум");
+                    Console.WriteLine("4) Найти максимум");
+                    Console.WriteLine("5) Вихід");
+                    Console.Write("Введіть свій вибір: ");
+                    int select = Convert.ToInt32(Console.ReadLine());
+
+                    switch (select)
                     {
-                        if (num % 5 == 0)
-                        {
-                            Console.WriteLine("Buzz");
-                        }
-                        else
-                        {
-                            Console.WriteLine(num);
-                        }
+                        case 1:
+                            v.ShowMatrix();
+                            break;
+
+                        case 2:
+                            v.WriteMatrix();
+                            break;
+
+                        case 3:
+                            v.getMin();
+                            break;
+
+                        case 4:
+                            v.getMax();
+                            break;
+
+                        case 5:
+                            Exit = true;
+                            break;
+                    }
+
+                    if (Exit)
+                    {
+                        break;
                     }
                 }
-                else
-                {
-                    throw new Exception("Число не в діапазоні від 1 до 100!");
-                }
-                
             }
             catch (Exception ex)
             {
