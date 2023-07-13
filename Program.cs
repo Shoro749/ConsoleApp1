@@ -10,7 +10,7 @@ namespace ConsoleApp1
             {
                 /*Реалізуйте клас Матриця». Реалізуйте конструктори і
                 методи класу для введення і виведення даних, підрахунку
-                максимуму і мінімуму. Використовуйте механізм навантаження методів.*//////////////////////////////
+                максимуму і мінімуму. Використовуйте механізм навантаження методів.*/
 
                 Console.InputEncoding = Encoding.Unicode;
                 Console.OutputEncoding = Encoding.Unicode;
@@ -32,7 +32,7 @@ namespace ConsoleApp1
                 while (true)
                 {
                     bool Exit = false;
-                    Console.WriteLine("1) Показати матрицю");
+                    Console.WriteLine("\n1) Показати матрицю");
                     Console.WriteLine("2) Переписати матрицю");
                     Console.WriteLine("3) Найти мінімум");
                     Console.WriteLine("4) Найти максимум");
@@ -51,11 +51,11 @@ namespace ConsoleApp1
                             break;
 
                         case 3:
-                            v.getMin();
+                            Console.WriteLine("\nМінімум: " + v.getM());
                             break;
 
                         case 4:
-                            v.getMax();
+                            Console.WriteLine("\nМаксимум: " + v.getM(arr));
                             break;
 
                         case 5:

@@ -36,6 +36,7 @@ namespace ConsoleApp1
 
         public void ShowMatrix()
         {
+            Console.Write("\n");
             for (int i = 0;i < 3; i++)
             {
                 for (int j = 0;j < 3; j++)
@@ -59,7 +60,7 @@ namespace ConsoleApp1
             ShowMatrix();
         }
 
-        public int getMin()
+        public int getM()
         {
             int min = int.MaxValue;
             for (int i = 0; i < 3; i++)
@@ -76,16 +77,16 @@ namespace ConsoleApp1
             return min;
         }
 
-        public int getMax()
+        public int getM(int[,] arr)
         {
             int max = int.MinValue;
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    if (_arr[i, j] > max)
+                    if (arr[i, j] > max)
                     {
-                        max = _arr[i, j];
+                        max = arr[i, j];
                     }
                 }
             }
