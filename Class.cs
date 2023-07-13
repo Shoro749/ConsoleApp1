@@ -4,55 +4,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/*Напишіть метод, який відображає квадрат із деякого
+символу. Метод приймає довжину сторони квадрата як
+параметр, — символ.*/
+
 namespace ConsoleApp1.Domain.Model
 {
     public class Class
     {
-        private int _range1;
-        private int _range2;
-
-        public Class() 
+        private int _length;
+        private string _symbol;
+        public Class() { _length = 0; _symbol = " "; }
+        public Class(int length, string symbol) 
         { 
-            _range1 = 0;
-            _range2 = 0;
-        }
-
-        public Class(int range1, int range2)
-        {
-            if (range1 < range2)
+            _length = length;
+            if (symbol.Length > 1)
             {
-                _range1 = range1;
-                _range2 = range2;
+                throw new Exception("Тільки один символ приймається!");
             }
-            else
+            else { _symbol = symbol; }
+        }
+
+        public void Square()
+        {
+            Console.WriteLine("\n");
+            for (int j = 0; j < _length; j++)
             {
-                _range1 = range2;
-                _range2 = range1;
+                for (int i = 0; i < _length; i++)
+                {
+                    Console.Write(_symbol + _symbol);
+                }
+                Console.Write("\n");
             }
-        }
-
-        public int Range1
-        {
-            get { return _range1; }
-            set { _range1 = value; }
-        }
-
-        public int Range2
-        {
-            get { return _range2; }
-            set { _range2 = value; }
-        }
-
-        public int Dobutok() 
-        {
-            int d = 1;
-
-            for (int i = _range1; i < _range2; i++)
-            {
-                d *= i;
-            }
-
-            return d;
+            Console.WriteLine("\n");
         }
     }
 }
