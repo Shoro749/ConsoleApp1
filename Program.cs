@@ -8,35 +8,30 @@ namespace ConsoleApp1
         {
             try
             {
+                /*Напишіть метод, який перевіряє чи є передане число
+                «паліндромом». Число передається як параметр. Якщо
+                число — паліндром, потрібно повернути з методу true,
+                інакше — false.
+                Паліндром — число, яке однаково читається в обох
+                напрямках (зліва направо та справа наліво).
+                Наприклад:
+                1221 — паліндром;
+                3443 — паліндром;
+                7854 — не паліндром.*/
+
                 Console.InputEncoding = Encoding.Unicode;
                 Console.OutputEncoding = Encoding.Unicode;
 
-                Console.Write("Введіть число: ");
+                Console.Write("Введіть чотирьохзначне число: ");
                 int num = Convert.ToInt32(Console.ReadLine());
 
-                if (num > 0 && num < 100)
+                if (num < 1000 || num > 9999)
                 {
-                    if (num % 3 == 0)
-                    {
-                        Console.WriteLine("Fizz");
-                    }
-                    else
-                    {
-                        if (num % 5 == 0)
-                        {
-                            Console.WriteLine("Buzz");
-                        }
-                        else
-                        {
-                            Console.WriteLine(num);
-                        }
-                    }
+                    throw new Exception("Введено неправильне число!");
                 }
-                else
-                {
-                    throw new Exception("Число не в діапазоні від 1 до 100!");
-                }
-                
+
+                var v = new Palindrome(num);
+                v.Checking(num);
             }
             catch (Exception ex)
             {
