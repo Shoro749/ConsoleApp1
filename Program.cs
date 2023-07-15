@@ -8,35 +8,52 @@ namespace ConsoleApp1
         {
             try
             {
+                /*Створіть класи для створення парних чисел, непарних
+                чисел, простих чисел, чисел Фібоначчі. Використовуйте
+                механізми просторів імен.*/
+
                 Console.InputEncoding = Encoding.Unicode;
                 Console.OutputEncoding = Encoding.Unicode;
 
-                Console.Write("Введіть число: ");
-                int num = Convert.ToInt32(Console.ReadLine());
+                int[] arr = new int[10];
 
-                if (num > 0 && num < 100)
+                Console.WriteLine("1) Створити парні числа");
+                Console.WriteLine("2) Створити не парні числа");
+                Console.WriteLine("3) Створити прості числа");
+                Console.WriteLine("4) Створити числа Фібоначчі");
+                Console.Write("Введіть свій вибір: ");
+                int select = Convert.ToInt32(Console.ReadLine());
+
+                switch (select)
                 {
-                    if (num % 3 == 0)
-                    {
-                        Console.WriteLine("Fizz");
-                    }
-                    else
-                    {
-                        if (num % 5 == 0)
-                        {
-                            Console.WriteLine("Buzz");
-                        }
-                        else
-                        {
-                            Console.WriteLine(num);
-                        }
-                    }
+                    case 1:
+                        Even.Class @class1 = new Even.Class();
+                        @class1.Numbers(arr);
+                        Console.Write("\n");
+                        foreach (var item in arr) Console.Write(item + " ");
+                        break;
+
+                    case 2:
+                        NotEven.Class @class2 = new NotEven.Class();
+                        @class2.Numbers(arr);
+                        Console.Write("\n");
+                        foreach (var item in arr) Console.Write(item + " ");
+                        break;
+
+                    case 3:
+                        PrimeNumbers.Class @class3 = new PrimeNumbers.Class();
+                        @class3.Numbers(arr);
+                        Console.Write("\n");
+                        foreach (var item in arr) Console.Write(item + " ");
+                        break;
+
+                    case 4:
+                        FibonacciNumbers.Class @class4 = new FibonacciNumbers.Class();
+                        @class4.Numbers(arr);
+                        Console.Write("\n");
+                        foreach (var item in arr) Console.Write(item + " ");
+                        break;
                 }
-                else
-                {
-                    throw new Exception("Число не в діапазоні від 1 до 100!");
-                }
-                
             }
             catch (Exception ex)
             {
