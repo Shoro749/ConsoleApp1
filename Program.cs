@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Drawing;
+using System.Text;
 
 namespace ConsoleApp1
 {
@@ -14,7 +15,29 @@ namespace ConsoleApp1
                 Console.InputEncoding = Encoding.Unicode;
                 Console.OutputEncoding = Encoding.Unicode;
 
-                Triangle.Geometry figure = new Triangle.Geometry();
+                Console.WriteLine("1) Показати трикутник");
+                Console.WriteLine("2) Показати прямокутник");
+                Console.WriteLine("3) Показати квадрат");
+                Console.Write("Введіть свій вибір: ");
+                int select = Convert.ToInt32(Console.ReadLine());
+
+                switch (select)
+                {
+                    case 1:
+                        Triangle.Geometry figure1 = new Triangle.Geometry();
+                        figure1.ShowFigure();
+                        break;
+
+                    case 2:
+                        Rectangle.Geometry figure2 = new Rectangle.Geometry();
+                        figure2.ShowFigure();
+                        break;
+
+                    case 3:
+                        Square.Geometry figure3 = new Square.Geometry();
+                        figure3.ShowFigure();
+                        break;
+                }
             }
             catch (Exception ex)
             {

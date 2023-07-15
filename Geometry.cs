@@ -13,14 +13,13 @@ namespace Triangle
     {
         public void ShowFigure()
         {
-            Console.WriteLine("\t\t\t\t\t\t\t\t*");
-            Console.WriteLine("\t\t\t\t\t\t\t**");
-            Console.WriteLine("\t\t\t\t\t\t****");
-            Console.WriteLine("\t\t\t\t\t******");
-            Console.WriteLine("\t\t\t\t********");
-            Console.WriteLine("\t\t\t**********");
-            Console.WriteLine("\t\t************");
-            Console.WriteLine("\t**************");
+            Console.WriteLine("\n       **");
+            Console.WriteLine("      ****");
+            Console.WriteLine("     ******");
+            Console.WriteLine("    ********");
+            Console.WriteLine("   **********");
+            Console.WriteLine("  ************");
+            Console.WriteLine(" **************");
             Console.WriteLine("****************");
         }
     }
@@ -30,6 +29,19 @@ namespace Rectangle
 {
     public class Geometry
     {
+        public void ShowFigure()
+        {
+            Console.WriteLine("\n****************");
+            Console.WriteLine("****************");
+            Console.WriteLine("****************");
+            Console.WriteLine("****************");
+            Console.WriteLine("****************");
+            Console.WriteLine("****************");
+            Console.WriteLine("****************");
+            Console.WriteLine("****************");
+            Console.WriteLine("****************");
+            Console.WriteLine("****************");
+        }
     }
 }
 
@@ -37,5 +49,16 @@ namespace Square
 {
     public class Geometry
     {
+        public void ShowFigure()
+        {
+            Console.WriteLine("\n****************");
+            Console.WriteLine("****************");
+            Console.WriteLine("****************");
+            Console.WriteLine("****************");
+            Console.WriteLine("****************");
+            Console.WriteLine("****************");
+            Console.WriteLine("****************");
+            Console.WriteLine("****************");
+        }
     }
 }
