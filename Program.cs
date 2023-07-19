@@ -14,6 +14,8 @@ namespace ConsoleApp1
                 закінчитися перемогою одного з гравців або нічиєю. 
                 Використовуйте механізми просторів імен.*/
 
+                /*Додайте до першого завдання можливість грати з іншим користувачем*/
+
                 Console.InputEncoding = Encoding.Unicode;
                 Console.OutputEncoding = Encoding.Unicode;
 
