@@ -13,14 +13,28 @@ namespace ConsoleApp1
 
                 Console.InputEncoding = Encoding.Unicode;
                 Console.OutputEncoding = Encoding.Unicode;
-                Random rnd = new Random();
+
+                int[] arr = new int[10];
+                int attempt = 0;
 
                 Console.WriteLine("Загадайте число в межах (1-10)\nНажміть Enter щоб продовжити\n");
                 Console.ReadKey();
 
+                Attempt.Class _class = new Attempt.Class();
+
                 while (true)
                 {
+                    if (_class.guessing(arr, attempt) == true)
+                    {
+                        break;
+                    }
 
+                    attempt++;
+
+                    if (attempt == 10)
+                    {
+                        throw new Exception("Ви загадали число за межами!");
+                    }
                 }
             }
             catch (Exception ex)
