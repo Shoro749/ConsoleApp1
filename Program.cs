@@ -8,40 +8,21 @@ namespace ConsoleApp1
         {
             try
             {
+                /*Створіть додаток «Хрестики-Нулики». Користувач грає
+                з комп'ютером. При старті гри рандомно обирається, хто
+                перший розпочинає гру. Гравці ходять по черзі. Гра може
+                закінчитися перемогою одного з гравців або нічиєю. 
+                Використовуйте механізми просторів імен.*/
+
                 Console.InputEncoding = Encoding.Unicode;
                 Console.OutputEncoding = Encoding.Unicode;
 
-                Console.Write("Введіть число: ");
-                int num = Convert.ToInt32(Console.ReadLine());
-
-                if (num > 0 && num < 100)
-                {
-                    if (num % 3 == 0)
-                    {
-                        Console.WriteLine("Fizz");
-                    }
-                    else
-                    {
-                        if (num % 5 == 0)
-                        {
-                            Console.WriteLine("Buzz");
-                        }
-                        else
-                        {
-                            Console.WriteLine(num);
-                        }
-                    }
-                }
-                else
-                {
-                    throw new Exception("Число не в діапазоні від 1 до 100!");
-                }
-                
+                Play.Game game = new Play.Game();
+                game.playing();
             }
             catch (Exception ex)
             {
-                Console.ForegroundColor = ConsoleColor.Red; 
-                Console.WriteLine($"Помилка! {ex.Message}");
+                Console.WriteLine($"{ex.Message}");
             }
             Console.ReadKey();
             Console.ResetColor();
